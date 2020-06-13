@@ -21,9 +21,11 @@ print(len(files))
 data = []
 
 for i in range(len(files)):
-    with open('SignFiles/'+files[0]) as fp: 
-        d = fp.read() 
-        data.append(d.translate({ord(c): None for c in string.whitespace}))
+    with open('SignFiles/'+files[i]) as fp: 
+        d = '<?xml version="1.0" encoding="utf-8"?>'
+        d += fp.read() 
+        # data.append(d.translate({ord(c): None for c in string.whitespace}))
+        data.append(d)
 
 print(type(data))
 
@@ -31,8 +33,9 @@ print(type(data))
 
 with open('Results.txt', mode='wt', encoding='utf-8') as myfile:
     # for lines in text:
-    for i in range(len(data)):
-        print('<?xml version="1.0" encoding="utf-8"?>'+data[i], file = myfile)
+    # for i in range(len(data)):
+    print(data, file = myfile)
+
 myfile.close
 
 
