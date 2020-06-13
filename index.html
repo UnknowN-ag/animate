@@ -26,7 +26,13 @@
                 CWASA.playSiGMLText(stext);
             }
 
-            
+            var fr=new FileReader('/home/cadbury/Documents/Intern/JPMC/projectReferences/avtar-test/SignFiles/0.sigml'); 
+            fr.onload=function(){ 
+                document.getElementById('output') 
+                        .textContent=fr.result; 
+            } 
+              
+            fr.readAsText(this.files[0]); 
 
         </script>
 

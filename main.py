@@ -1,4 +1,5 @@
 import os
+import string
 
 path = '/home/cadbury/Documents/Intern/JPMC/projectReferences/avtar-test/SignFiles'
 
@@ -20,8 +21,20 @@ print(len(files))
 data = []
 
 for i in range(len(files)):
-    with open('file1.txt') as fp: 
-        data = fp.read() 
+    with open('SignFiles/'+files[0]) as fp: 
+        d = fp.read() 
+        data.append(d.translate({ord(c): None for c in string.whitespace}))
+
+print(type(data))
+
+# print(data)
+
+with open('Results.txt', mode='wt', encoding='utf-8') as myfile:
+    # for lines in text:
+    for i in range(len(data)):
+        print('<?xml version="1.0" encoding="utf-8"?>'+data[i], file = myfile)
+myfile.close
+
 
 # result_path = 'Results'
 
