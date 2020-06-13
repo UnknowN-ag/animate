@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Signing Avatar</title>
+
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta http-equiv="Access-Control-Allow-Methods" content="GET">
+
+        <!-- CWA @ vhg.cmp.uea.ac.uk/jrwg/ -->
+        <link rel="stylesheet"
+            href="http://vhg.cmp.uea.ac.uk/tech/jas/vhg2019/cwa/cwasa.css" />
+        <!-- <link rel="stylesheet" href="index.css"> -->
+        <script type="text/javascript"
+            src="http://vhg.cmp.uea.ac.uk/tech/jas/vhg2019/cwa/allcsa.js"></script>
+
+        <script language="javascript">
+
+            function playURL(surl) {
+                CWASA.playSiGMLURL(surl);
+            }
+
+            function playText(stext) {
+                console.log(typeof(stext))
+                CWASA.playSiGMLText(stext);
+            }
+
+            
+
+        </script>
+
+        <style>
+            .divCtrlPanel{
+                display:none;
+            }
+        </style>
+
+    </head>
+
+    <body onload="CWASA.init();">
+
+        <hr>
+
+        <!-- CWA signing avatar panel 0 -->
+        <!--================================================================-->
+        <div class="CWASAPanel av0" align="center" ></div>
+        <!--================================================================-->
+        <hr>
+
+        <!-- CWA signing avatar panel 1 -->
+        <!--================================================================-->
+        <div class="CWASAPanel av1" align="center" ></div>
+        <!-- ================================================================ -->
+        <hr>
+        <div align="center">
+            New Text: <input type="button" value="doText" onclick='playText(document.getElementById("mySiGML").value);' /><br>
+            <textarea id="mySiGML" class="txtaSiGMLText" rows="6" ><?xml version="1.0" encoding="utf-8"?><sigml><hns_sign gloss="hello"><hamnosys_nonmanual><hnm_mouthpicture picture="hVlU"/></hamnosys_nonmanual><hamnosys_manual><hamflathand/><hamthumboutmod/><hambetween/><hamfinger2345/><hamextfingeru/><hampalmd/><hamshouldertop/><hamlrat/><hamarmextended/><hamswinging/><hamrepeatfromstart/></hamnosys_manual></hns_sign></sigml>                
+            </textarea>
+
+            <br>
+            <!-- New URL:  <input type="button" value="doURL" onclick='playURL(document.getElementById("myURL").value);' /><br>
+            <input id="myURL" class="txtSiGMLURL av0" value="welkom-ngt.sigml" type="text" /> -->
+
+            <br>
+            <input type="button" value="Stop" onclick='CWASA.stopSiGML();' />
+
+            <hr>
+            <!-- <textarea id="statusLog"  class="statusLog" rows="6" >
+            </textarea> -->
+            <hr>
+            <!-- <textarea id="JSONText" class="txtaSiGMLText" rows="6" >
+
+            </textarea> -->
+
+        </div>
+
+        <!-- SToCA applet element panel -->
+        <!--================================================================-->
+        <div class="SToCA" align="center" ></div>
+        <!--================================================================-->
+
+    </body>
+</html>
